@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:textSize="60px"
+
+    tools:context=".controller.GerarSenhaActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="147dp"
+        android:layout_marginLeft="30dp"
+        android:text="@string/gerar_senha_text_tipo"
+        android:textSize="60px"
+        android:id="@+id/gerar_senha_text_tipo"/>
+
+    <Spinner
+        android:id="@+id/gerar_senha_spinner_tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gerar_senha_text_tipo"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="60px"
+        android:spinnerMode="dropdown"></Spinner>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/gerar_senha_spinner_tipo"
+        android:text="@string/gerar_senha_text_tipo"
+        android:textSize="60px"
+        android:id="@+id/gerar_senha_text_servico"/>
+
+    <Spinner
+        android:id="@+id/gerar_senha_spinner_servico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gerar_senha_text_servico"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="60px"
+        android:spinnerMode="dropdown"></Spinner>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gerar_senha_spinner_servico"
+        android:text="@string/gerar_senha_button_criar"
+        android:onClick="criarSenha"/>
+
+</RelativeLayout>

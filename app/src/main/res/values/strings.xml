@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">StarkeSenhas</string>
+    <string name="gerar_senha_text_tipo">Tipo</string>
+    <string-array name="gerar_senha_tipo_spinner">
+        <item>Comum</item>
+        <item>Preferencial</item>
+        <item>Emergencial</item>
+    </string-array>
+
+    <string name="title_activity_splashscreen">SplashscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="gerar_senha_button_criar">Criar</string>
+</resources>
