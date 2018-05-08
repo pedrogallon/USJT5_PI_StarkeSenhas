@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import br.usjt.starke.starkesenhas.R;
 import br.usjt.starke.starkesenhas.model.Senha;
 
-import static br.usjt.starke.starkesenhas.controller.GerarSenhaActivity.SENHA_GERADA;
+import static br.usjt.starke.starkesenhas.model.AsyncTasks.SENHA_GERADA;
+import static br.usjt.starke.starkesenhas.model.Senha.DF_SENHA;
 
 public class VisualizarSenhaGeradaActivity extends Activity {
-    private final DateFormat df = new SimpleDateFormat("HH:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +32,8 @@ public class VisualizarSenhaGeradaActivity extends Activity {
         senhaNome.setText(senha.getNome());
         senhaServico.setText(senha.getServico().getNome());
         senhaTipo.setText(senha.getTipo());
-        senhaFila.setText(df.format(senha.getEstimativaFila()));
-        senhaFinal.setText(df.format(senha.getEstimativaFila()));
+        senhaFila.setText(DF_SENHA.format(senha.getEstimativaFila()));
+        senhaFinal.setText(DF_SENHA.format(senha.getEstimativaFila()));
 
     }
 }

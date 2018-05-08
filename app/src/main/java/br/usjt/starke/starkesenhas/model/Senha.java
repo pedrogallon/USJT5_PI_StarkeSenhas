@@ -1,9 +1,12 @@
 package br.usjt.starke.starkesenhas.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Senha implements Serializable {
+    public static final DateFormat DF_SENHA= new SimpleDateFormat("HH:mm");
 
     private int id;
     private Servico servico;

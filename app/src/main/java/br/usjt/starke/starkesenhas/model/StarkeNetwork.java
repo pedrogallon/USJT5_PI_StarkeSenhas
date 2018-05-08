@@ -18,9 +18,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class StarkeNetwork {
+    public static String ENDERECO_REST = "http://192.168.15.110:8081/starke_project/rest/";
+
     public static Senha criarSenha(String url) throws IOException {
-
-
 
         Senha senha = new Senha();
         OkHttpClient client = new OkHttpClient();
@@ -51,15 +51,14 @@ public class StarkeNetwork {
             servico.setNome(objServico.getString("nome"));
 
 
-
             senha.setServico(servico);
             /** CASO PRECISE DO SUBSERVICO
-            Subservico subservico = new Subservico();
-            JSONObject objSubservico = objSenha.getJSONObject("subservico");
-            subservico.setId(objSubservico.getInt("id"));
-            subservico.setNome(objSubservico.getString("nome"));
-            subservico.setOrdem(objSubservico.getInt("ordem"));
-            subservico.setServico(servico);
+             Subservico subservico = new Subservico();
+             JSONObject objSubservico = objSenha.getJSONObject("subservico");
+             subservico.setId(objSubservico.getInt("id"));
+             subservico.setNome(objSubservico.getString("nome"));
+             subservico.setOrdem(objSubservico.getInt("ordem"));
+             subservico.setServico(servico);
              **/
 
         } catch (JSONException e) {
@@ -71,35 +70,30 @@ public class StarkeNetwork {
     }
 
 
-
     /**
-     *
-     *
-     *
-     *
-     {
-     "id": 20,
-     "servico": {
-     "id": "CN",
-     "nome": "Renovacao CNH"
-     },
-     "subservico": {
-     "id": 7,
-     "servico": {
-     "id": "CN",
-     "nome": "Renovacao CNH"
-     },
-     "ordem": 1,]
-     "nome": "Entregar Documentos"
-     },
-     "tipo": "comum",
-     "nome": "CN009",
-     "status": "aguardando",
-     "dataEntrada": 1524083191666,
-     "dataSaida": null,
-     "estimativaFila": 1524085111660,
-     "estimativaAtendimento": 1524089251660
-     }
+     * {
+     * "id": 20,
+     * "servico": {
+     * "id": "CN",
+     * "nome": "Renovacao CNH"
+     * },
+     * "subservico": {
+     * "id": 7,
+     * "servico": {
+     * "id": "CN",
+     * "nome": "Renovacao CNH"
+     * },
+     * "ordem": 1,]
+     * "nome": "Entregar Documentos"
+     * },
+     * "tipo": "comum",
+     * "nome": "CN009",
+     * "status": "aguardando",
+     * "dataEntrada": 1524083191666,
+     * "dataSaida": null,
+     * "estimativaFila": 1524085111660,
+     * "estimativaAtendimento": 1524089251660
+     * }
      */
     public static ArrayList<Servico> listarServico(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -142,7 +136,31 @@ public class StarkeNetwork {
 
         Response response = client.newCall(request).execute();
         String json = response.body().string();
-
+/*
+        [
+        {
+            "id": 5,
+                "servico": {
+                    "id": "CJ",
+                    "nome": "Tirar CNPJ"
+        },
+            "subservico": {
+                "id": 6,
+                "servico": {
+                    "id": "CJ",
+                    "nome": "Tirar CNPJ"
+                },
+                "ordem": 3,
+                "nome": "Pagar Taxa"
+        },
+            "tipo": "preferencial",
+             "nome": "CJ003",
+             "status": "aguardando",
+             "dataEntrada": 1523998402000,
+             "dataSaida": null,
+             "estimativaFila": 1523998462000,
+             "estimativaAtendimento": 1523998462000
+        }]*/
         try {
             JSONArray lista = new JSONArray(json);
             // TODO: 18/04/18 Inserir todos os dados p Senha, Servico e Subservico
@@ -150,25 +168,46 @@ public class StarkeNetwork {
                 JSONObject item = (JSONObject) lista.get(i);
                 Senha senha = new Senha();
                 senha.setId(item.getInt("id"));
-
-                String sDataAbertura = (item.getString("dataAbertura"));
+                senha.setNome(item.getString("nome"));
+                senha.setStatus(item.getString("status"));
+                senha.setTipo(item.getString("tipo"));
                 try {
-                    senha.setDataEntrada(formatter.parse(sDataAbertura));
-                } catch (ParseException e) {
+                    senha.setDataEntrada(new Date(item.getLong("dataEntrada")));
+                } catch (Exception e) {
                     senha.setDataEntrada(null);
-                    e.printStackTrace();
                 }
 
+                try {
+                    senha.setDataSaida(new Date(item.getLong("dataSaida")));
+                } catch (Exception e){
+                    senha.setDataSaida(null);
+                }
+
+                try {
+                senha.setEstimativaFila(new Date(item.getLong("estimativaFila")));
+                } catch (Exception e){
+                    senha.setEstimativaFila(null);
+                }
+
+                try{
+                senha.setEstimativaAtendimento(new Date(item.getLong("estimativaAtendimento")));
+                } catch (Exception e){
+                    senha.setEstimativaAtendimento(null);
+                }
                 // Adcionando Servico
                 JSONObject servicoJSON = item.getJSONObject("servico");
                 Servico servico = new Servico();
                 servico.setId(servicoJSON.getString("id"));
+                servico.setNome(servicoJSON.getString("nome"));
                 senha.setServico(servico);
 
                 // Adcionando Subservico
                 JSONObject subservicoJSON = item.getJSONObject("subservico");
                 Subservico subservico = new Subservico();
                 subservico.setId(subservicoJSON.getInt("id"));
+                subservico.setNome(subservicoJSON.getString("nome"));
+                subservico.setOrdem(subservicoJSON.getInt("ordem"));
+                subservico.setServico(servico);
                 senha.setSubservico(subservico);
 
 

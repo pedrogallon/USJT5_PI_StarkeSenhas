@@ -14,14 +14,16 @@
         <activity android:name=".controller.GerarSenhaActivity" />
         <activity
             android:name=".controller.SplashscreenActivity"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".controller.VisualizarSenhaGeradaActivity" />
+        <activity android:name=".controller.ListarSenhaActivity" />
+        <activity android:name=".controller.MenuTemporarioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.VisualizarSenhaGeradaActivity"></activity>
     </application>
 
 </manifest>

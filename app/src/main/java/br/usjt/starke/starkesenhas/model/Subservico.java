@@ -1,6 +1,8 @@
 package br.usjt.starke.starkesenhas.model;
 
-public class Subservico {
+import java.io.Serializable;
+
+public class Subservico implements Serializable {
 
 
     private int id;
