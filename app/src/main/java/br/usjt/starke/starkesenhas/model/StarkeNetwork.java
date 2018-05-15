@@ -1,14 +1,11 @@
 package br.usjt.starke.starkesenhas.model;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,7 +27,7 @@ public class StarkeNetwork {
 
         Response response = client.newCall(request).execute();
         String json = response.body().string();
-        Log.d("DBG", json);
+
 
         try {
             JSONObject objSenha = new JSONObject(json);
@@ -163,7 +160,6 @@ public class StarkeNetwork {
         }]*/
         try {
             JSONArray lista = new JSONArray(json);
-            // TODO: 18/04/18 Inserir todos os dados p Senha, Servico e Subservico
             for (int i = 0; i < lista.length(); i++) {
                 JSONObject item = (JSONObject) lista.get(i);
                 Senha senha = new Senha();

@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:textAlignment="center"
             android:text="SENHA"
             android:textSize="20dp"
@@ -23,17 +23,17 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:textAlignment="center"
-            android:text="FILA"
+            android:text="STATUS"
             android:textSize="20dp"
             android:id="@+id/listar_senha_label_2"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:textAlignment="center"
-            android:text="FINAL"
+            android:text="ESTIMATIVA"
             android:textSize="20dp"
             android:id="@+id/listar_senha_label_3"/>
 

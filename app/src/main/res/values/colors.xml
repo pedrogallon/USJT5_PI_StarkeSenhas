@@ -6,4 +6,5 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="custom_background">#e0e0e0</color>
+    <color name="item_senha_amarelo">#dab21e</color>
 </resources>

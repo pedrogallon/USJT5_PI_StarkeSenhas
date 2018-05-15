@@ -47,23 +47,28 @@ public class SenhaAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.item_senha, parent, false);
 
             TextView nome = view.findViewById(R.id.item_senha_nome);
-            TextView est1 = view.findViewById(R.id.item_senha_estimativa_1);
-            TextView est2 = view.findViewById(R.id.item_senha_estimativa_2);
+            TextView status = view.findViewById(R.id.item_senha_status);
+            TextView estimativa = view.findViewById(R.id.item_senha_estimativa);
             SenhaViewHolder viewHolder = new SenhaViewHolder();
             viewHolder.setNome(nome);
-            viewHolder.setEstimativa1(est1);
-            viewHolder.setEstimativa2(est2);
+            viewHolder.setStatus(status);
+            viewHolder.setEstimativa(estimativa);
             view.setTag(viewHolder);
         }
 
         Senha senha = senhas.get(position);
 
         SenhaViewHolder viewHolder = (SenhaViewHolder)view.getTag();
-        String est1 = DF_SENHA.format(senha.getEstimativaFila());
-        String est2 = DF_SENHA.format(senha.getEstimativaAtendimento());
+
+        String estimativa = DF_SENHA.format(senha.getEstimativaAtendimento());
         viewHolder.getNome().setText(senha.getNome());
-        viewHolder.getEstimativa1().setText(est1);
-        viewHolder.getEstimativa2().setText(est2);
+        viewHolder.getStatus().setText(senha.getStatus());
+        if (senha.getStatus().toLowerCase().equals("senha chamada")){
+            viewHolder.getNome().setTextColor(context.getResources().getColor(R.color.item_senha_amarelo));
+            viewHolder.getStatus().setTextColor(context.getResources().getColor(R.color.item_senha_amarelo));
+            viewHolder.getEstimativa().setTextColor(context.getResources().getColor(R.color.item_senha_amarelo));
+        }
+        viewHolder.getEstimativa().setText(estimativa);
 
         return view;
     }

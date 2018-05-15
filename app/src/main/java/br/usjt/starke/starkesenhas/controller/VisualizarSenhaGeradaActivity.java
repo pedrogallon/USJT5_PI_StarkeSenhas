@@ -33,7 +33,7 @@ public class VisualizarSenhaGeradaActivity extends Activity {
         senhaServico.setText(senha.getServico().getNome());
         senhaTipo.setText(senha.getTipo());
         senhaFila.setText(DF_SENHA.format(senha.getEstimativaFila()));
-        senhaFinal.setText(DF_SENHA.format(senha.getEstimativaFila()));
+        senhaFinal.setText(DF_SENHA.format(senha.getEstimativaAtendimento()));
 
     }
 }
