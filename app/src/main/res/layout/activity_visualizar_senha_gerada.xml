@@ -16,28 +16,39 @@
         android:textSize="70dp" />
 
     <TextView
-        android:id="@+id/visualizar_senha_servico"
+        android:id="@+id/visualizar_senha_tipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/visualizar_senha_nome"
+        android:gravity="center"
+        android:text="Comum"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/visualizar_senha_servico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/visualizar_senha_tipo"
         android:gravity="center"
         android:text="Nome do Serviço"
         android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/visualizar_senha_tipo"
+        android:id="@+id/visualizar_senha_subservico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/visualizar_senha_servico"
         android:gravity="center"
-        android:text="Comum"
-        android:textSize="20dp" />
+        android:text="Nome do Subserviço"
+        android:textSize="25dp" />
+
+
 
     <LinearLayout
         android:id="@+id/visualizar_senha_datagroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/visualizar_senha_tipo"
+        android:layout_below="@id/visualizar_senha_subservico"
         android:gravity="center"
         android:layout_marginTop="10dp">
 

@@ -30,5 +30,9 @@ public class MenuTemporarioActivity extends Activity {
         new AsyncTasks.getSenhas().execute(params);
     }
 
+    public void activityVisualizarSenha(View view) {
+        this.startActivity(new Intent(this, SelecionarSenhaActivity.class));
+    }
+
 
 }

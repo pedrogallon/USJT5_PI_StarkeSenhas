@@ -12,6 +12,8 @@ import br.usjt.starke.starkesenhas.controller.ListarSenhaActivity;
 import br.usjt.starke.starkesenhas.controller.MenuTemporarioActivity;
 import br.usjt.starke.starkesenhas.controller.VisualizarSenhaGeradaActivity;
 
+import static br.usjt.starke.starkesenhas.controller.SelecionarSenhaActivity.SENHA;
+
 public class AsyncTasks {
     public static final String SERVICOS = "br.usjt.starke.starkesenhas.model.AsyncTasks.servicos";
     public static final String SENHA_GERADA = "br.usjt.starke.starkesenhas.model.AsyncTasks.senha_gerada";
@@ -87,6 +89,30 @@ public class AsyncTasks {
 
             Intent i = new Intent(context, ListarSenhaActivity.class);
             i.putExtra(SENHAS, senhas);
+            context.startActivity(i);
+        }
+
+    }
+
+    public static class getSenha extends AsyncTask<AsyncTaskParams, Void, Senha> {
+        private Context context;
+
+        @Override
+        protected Senha doInBackground(AsyncTaskParams... params) {
+            this.context = params[0].context;
+
+            try {
+                return StarkeNetwork.getSenha(params[0].url);
+            } catch (IOException e) {
+                return null;
+            }
+
+        }
+        @Override
+        protected void onPostExecute(Senha senha) {
+
+            Intent i = new Intent(context, VisualizarSenhaGeradaActivity.class);
+            i.putExtra(SENHA_GERADA, senha);
             context.startActivity(i);
         }
 

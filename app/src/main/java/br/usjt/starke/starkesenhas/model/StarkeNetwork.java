@@ -15,7 +15,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class StarkeNetwork {
-    public static String ENDERECO_REST = "http://192.168.15.110:8081/starke_project/rest/";
+    public static String ENDERECO_REST = "http://192.168.43.121:8081/starke_project/rest/";
 
     public static Senha criarSenha(String url) throws IOException {
 
@@ -57,6 +57,53 @@ public class StarkeNetwork {
              subservico.setOrdem(objSubservico.getInt("ordem"));
              subservico.setServico(servico);
              **/
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            throw new IOException(e);
+        }
+
+        return senha;
+    }
+
+    public static Senha getSenha(String url) throws IOException {
+
+        Senha senha = new Senha();
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        String json = response.body().string();
+
+
+        try {
+            JSONObject objSenha = new JSONObject(json);
+
+            senha.setId(objSenha.getInt("id"));
+            senha.setTipo(objSenha.getString("tipo"));
+            senha.setNome(objSenha.getString("nome"));
+            senha.setStatus(objSenha.getString("status"));
+
+            long longFila = (objSenha.getLong("estimativaFila"));
+            long longFinal = (objSenha.getLong("estimativaAtendimento"));
+            senha.setEstimativaFila(new Date(longFila));
+            senha.setEstimativaAtendimento(new Date(longFinal));
+
+            Servico servico = new Servico();
+            JSONObject objServico = objSenha.getJSONObject("servico");
+            servico.setId(objServico.getString("id"));
+            servico.setNome(objServico.getString("nome"));
+
+
+            senha.setServico(servico);
+             Subservico subservico = new Subservico();
+             JSONObject objSubservico = objSenha.getJSONObject("subservico");
+             subservico.setId(objSubservico.getInt("id"));
+             subservico.setNome(objSubservico.getString("nome"));
+             subservico.setOrdem(objSubservico.getInt("ordem"));
+             subservico.setServico(servico);
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -14,7 +14,7 @@
         <activity android:name=".controller.GerarSenhaActivity" />
         <activity
             android:name=".controller.SplashscreenActivity"
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".controller.VisualizarSenhaGeradaActivity" />
         <activity android:name=".controller.ListarSenhaActivity" />
         <activity android:name=".controller.MenuTemporarioActivity">
@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.SelecionarSenhaActivity"></activity>
     </application>
 
 </manifest>

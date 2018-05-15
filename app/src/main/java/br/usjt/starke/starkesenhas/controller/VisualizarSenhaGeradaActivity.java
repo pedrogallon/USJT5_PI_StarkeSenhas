@@ -19,6 +19,7 @@ public class VisualizarSenhaGeradaActivity extends Activity {
         setContentView(R.layout.activity_visualizar_senha_gerada);
 
         Intent i = getIntent();
+
         Senha senha = (Senha) i.getSerializableExtra(SENHA_GERADA);
 
 

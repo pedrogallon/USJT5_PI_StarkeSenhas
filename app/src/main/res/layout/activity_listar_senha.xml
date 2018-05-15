@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="ESTIMATIVA"
+            android:text="PREVISÃO"
             android:textSize="20dp"
             android:id="@+id/listar_senha_label_3"/>
 

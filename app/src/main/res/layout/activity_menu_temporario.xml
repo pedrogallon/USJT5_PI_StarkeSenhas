@@ -24,4 +24,12 @@
         android:layout_marginHorizontal="100dp"
         android:layout_marginVertical="10dp"
         android:onClick="activityListarSenha"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalhes Senha"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginVertical="10dp"
+        android:onClick="activityVisualizarSenha"/>
 </LinearLayout>
