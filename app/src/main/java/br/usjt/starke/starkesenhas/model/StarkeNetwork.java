@@ -107,7 +107,7 @@ public class StarkeNetwork {
 
         } catch (JSONException e) {
             e.printStackTrace();
-            throw new IOException(e);
+            return null;
         }
 
         return senha;

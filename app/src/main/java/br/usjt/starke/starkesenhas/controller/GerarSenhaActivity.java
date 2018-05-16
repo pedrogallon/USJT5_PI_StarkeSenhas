@@ -20,7 +20,6 @@ import static br.usjt.starke.starkesenhas.model.StarkeNetwork.ENDERECO_REST;
 
 public class GerarSenhaActivity extends Activity {
     Context context;
-    View view;
     ArrayList<Servico> listaServicos = new ArrayList<>();
     Spinner spinnerTipo;
     Spinner spinnerServico;

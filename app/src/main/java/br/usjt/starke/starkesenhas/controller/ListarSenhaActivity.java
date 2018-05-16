@@ -3,7 +3,6 @@ package br.usjt.starke.starkesenhas.controller;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -15,7 +14,6 @@ import java.util.TimerTask;
 
 import br.usjt.starke.starkesenhas.R;
 import br.usjt.starke.starkesenhas.model.AsyncTaskParams;
-import br.usjt.starke.starkesenhas.model.AsyncTasks;
 import br.usjt.starke.starkesenhas.model.Senha;
 import br.usjt.starke.starkesenhas.model.SenhaAdapter;
 import br.usjt.starke.starkesenhas.model.StarkeNetwork;
@@ -54,12 +52,12 @@ public class ListarSenhaActivity extends Activity {
     }
 
     private class getSenhasReload extends AsyncTask<AsyncTaskParams, Void, ArrayList<Senha>> {
-        private Context context;
+        Context context;
 
         @Override
         protected ArrayList<Senha> doInBackground(AsyncTaskParams... params) {
             ArrayList<Senha> senhas = new ArrayList<>();
-            this.context = params[0].getContext();
+            context = params[0].getContext();
 
             try {
                 senhas = StarkeNetwork.listarSenha(params[0].getUrl());
