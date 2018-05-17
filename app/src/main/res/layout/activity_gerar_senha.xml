@@ -4,55 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/main_header_selector"
+    android:padding="20dp"
     android:textSize="60px"
-
     tools:context=".controller.GerarSenhaActivity">
 
     <TextView
+        android:id="@+id/gerar_senha_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="147dp"
-        android:layout_marginLeft="30dp"
-        android:text="@string/gerar_senha_text_tipo"
-        android:textSize="60px"
-        android:id="@+id/gerar_senha_text_tipo"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:fontFamily="@font/lora"
+        android:text="GERAR SENHA"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="60px" />
+
+    <TextView
+        android:id="@+id/gerar_senha_text_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="129dp"
+        android:fontFamily="@font/dosis_extralight"
+        android:text="Tipo"
+        android:textColor="@android:color/white"
+        android:textSize="60px" />
 
     <Spinner
         android:id="@+id/gerar_senha_spinner_tipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gerar_senha_text_tipo"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="60px"
-        android:spinnerMode="dropdown"></Spinner>
+        android:layout_width="364dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/gerar_senha_text_tipo"
+        android:layout_centerHorizontal="true"
+        android:spinnerMode="dropdown"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat"
+        android:textSize="60px"></Spinner>
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/gerar_senha_text_servico"
+        android:layout_width="364dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/gerar_senha_spinner_tipo"
-        android:text="@string/gerar_senha_text_tipo"
-        android:textSize="60px"
-        android:id="@+id/gerar_senha_text_servico"/>
+        android:layout_alignStart="@+id/gerar_senha_text_tipo"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/dosis_extralight"
+        android:text="Serviço"
+        android:textColor="@android:color/white"
+        android:textSize="60px" />
 
     <Spinner
         android:id="@+id/gerar_senha_spinner_servico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gerar_senha_text_servico"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="60px"
-        android:spinnerMode="dropdown"></Spinner>
+        android:layout_width="354dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/gerar_senha_text_servico"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat"
+        android:textSize="60px"></Spinner>
+
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/gerar_senha_spinner_servico"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="118dp"
+        android:background="#231f20"
+        android:fontFamily="@font/montserrat"
+        android:onClick="criarSenha"
         android:text="@string/gerar_senha_button_criar"
-        android:onClick="criarSenha"/>
+        android:textAlignment="center"
+        android:textColor="#933c94" />
 
 </RelativeLayout>
