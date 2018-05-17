@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".controller.SelecionarSenhaActivity"
+    android:background="@drawable/main_header_selector"
     android:layout_gravity="center"
     android:gravity="center">
     <EditText
