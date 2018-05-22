@@ -15,7 +15,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class StarkeNetwork {
-    public static String ENDERECO_REST = "http://192.168.43.121:8081/starke_project/rest/";
+    public static String ENDERECO_REST = "http://10.0.100.14:8080/starke_project/rest/";
 
     public static Senha criarSenha(String url) throws IOException {
 

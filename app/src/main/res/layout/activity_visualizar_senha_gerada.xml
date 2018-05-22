@@ -1,80 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_header_selector"
-    android:gravity="center"
     tools:context=".controller.VisualizarSenhaGeradaActivity">
-
-    <TextView
-        android:id="@+id/visualizar_senha_nome"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="AA000"
-        android:textSize="70dp" />
-
-    <TextView
-        android:id="@+id/visualizar_senha_tipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/visualizar_senha_nome"
-        android:gravity="center"
-        android:text="Comum"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/visualizar_senha_servico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/visualizar_senha_tipo"
-        android:gravity="center"
-        android:text="Nome do Serviço"
-        android:textSize="30dp" />
-
-    <TextView
-        android:id="@+id/visualizar_senha_subservico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/visualizar_senha_servico"
-        android:gravity="center"
-        android:text="Nome do Subserviço"
-        android:textSize="25dp" />
-
-
-
-    <LinearLayout
-        android:id="@+id/visualizar_senha_datagroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/visualizar_senha_subservico"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/main_header_selector"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/visualizar_senha_datagroup_fila"
-            android:layout_width="wrap_content"
+            android:id="@+id/visualizar_senha_nome"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="00:00"
-            android:textSize="40dp" />
+            android:fontFamily="@font/lora"
+            android:gravity="center"
+            android:text="AA000"
+            android:textColor="#ffffff"
+            android:textSize="70dp" />
 
         <TextView
-            android:id="@+id/visualizar_senha_datagroup_separador"
-            android:layout_width="wrap_content"
+            android:id="@+id/visualizar_senha_tipo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/visualizar_senha_datagroup_fila"
-            android:text="  :  "
+            android:layout_below="@id/visualizar_senha_nome"
+            android:fontFamily="@font/dosis_extralight"
+            android:gravity="center"
+            android:text="Comum"
+            android:textColor="#ffffff"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/visualizar_senha_datagroup_final"
-            android:layout_width="wrap_content"
+            android:id="@+id/visualizar_senha_servico"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/visualizar_senha_datagroup_separador"
-            android:text="00:00"
-            android:textSize="40dp" />
-    </LinearLayout>
+            android:layout_below="@id/visualizar_senha_tipo"
+            android:fontFamily="@font/dosis_extralight"
+            android:gravity="center"
+            android:text="Nome do Serviço"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/visualizar_senha_subservico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/visualizar_senha_servico"
+            android:fontFamily="@font/dosis_extralight"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+
+
+
+        <LinearLayout
+            android:id="@+id/visualizar_senha_datagroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/visualizar_senha_subservico"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/visualizar_senha_datagroup_fila"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dosis_extralight"
+                android:text="00:00"
+                android:textColor="#ffffff"
+                android:textSize="40dp" />
+
+            <TextView
+                android:id="@+id/visualizar_senha_datagroup_separador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/visualizar_senha_datagroup_fila"
+                android:text="  :  "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/visualizar_senha_datagroup_final"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/visualizar_senha_datagroup_separador"
+                android:fontFamily="@font/dosis_extralight"
+                android:text="00:00"
+                android:textColor="#ffffff"
+                android:textSize="40dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <android.support.design.widget.BottomNavigationView
+    android:id="@+id/navigation_selecionar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/menu_dark"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:menu="@menu/navigation" />
+
+    </android.support.constraint.ConstraintLayout>

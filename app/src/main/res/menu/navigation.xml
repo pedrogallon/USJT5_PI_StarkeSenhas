@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_criar"
+        android:enabled="true"
+        style="@style/Dosis"
+        android:icon="@drawable/ic_ticket_icon"
+        android:title="@string/title_criar" />
+
+    <item
+        android:id="@+id/action_listar"
+        android:enabled="true"
+        style="@style/Dosis"
+        android:icon="@drawable/ic_gerar"
+        android:title="@string/title_listar" />
+
+    <item
+        android:id="@+id/action_consultar"
+        android:enabled="true"
+        style="@style/Dosis"
+        android:icon="@drawable/ic_search_icon"
+        android:title="@string/title_consultar" />
+
+</menu>

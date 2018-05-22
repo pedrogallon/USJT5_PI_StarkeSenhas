@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_criar"
+        android:enabled="true"
+        android:icon="@drawable/logo_starke"
+        android:title="Criar Senha"/>
+
+    <item
+        android:id="@+id/action_listar"
+        android:enabled="true"
+        android:icon="@drawable/logo_starke"
+        android:title="Painel"/>
+
+    <item
+        android:id="@+id/action_consultar"
+        android:enabled="true"
+        android:icon="@drawable/logo_starke"
+        android:title="Consultar Senha"/>
+</menu>

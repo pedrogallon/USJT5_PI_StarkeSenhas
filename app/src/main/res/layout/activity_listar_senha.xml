@@ -1,48 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/main_header_selector"
     tools:context=".controller.ListarSenhaActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="6dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="SENHA"
-            android:textSize="20dp"
-            android:id="@+id/listar_senha_label_1"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="STATUS"
-            android:textSize="20dp"
-            android:id="@+id/listar_senha_label_2"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:text="PREVISÃO"
-            android:textSize="20dp"
-            android:id="@+id/listar_senha_label_3"/>
+        android:layout_above="@id/navigation_listar"
+        android:layout_alignParentEnd="false"
+        android:orientation="vertical">
 
-    </LinearLayout>
-    <ListView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="6dp">
+
+                <TextView
+                    android:id="@+id/listar_senha_label_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SENHA"
+                    android:textAlignment="center"
+                    android:textColor="#1164b7"
+                    android:textSize="20dp"
+                    style="@style/Dosis" />
+
+                <TextView
+                    android:id="@+id/listar_senha_label_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="STATUS"
+                    android:textAlignment="center"
+                    android:textColor="#1164b7"
+                    android:textSize="20dp"
+                    style="@style/Dosis"/>
+
+                <TextView
+                    android:id="@+id/listar_senha_label_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PREVISÃO"
+                    android:textAlignment="center"
+                    android:textColor="#1164b7"
+                    android:textSize="20dp"
+                    style="@style/Dosis" />
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listar_senha_lista"
+                style="@style/Dosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@android:dimen/notification_large_icon_width"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:fastScrollEnabled="false" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation_listar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listar_senha_lista"
-        android:fastScrollEnabled="false"/>
+        android:background="@color/menu_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

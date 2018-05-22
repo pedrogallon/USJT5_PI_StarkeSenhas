@@ -6,29 +6,28 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_starke_blue"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_starke_blue_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
         <activity android:name=".controller.GerarSenhaActivity" />
-        <activity
-            android:name=".controller.SplashscreenActivity"
-            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:name=".controller.SplashscreenActivity" />
         <activity android:name=".controller.VisualizarSenhaGeradaActivity" />
         <activity android:name=".controller.ListarSenhaActivity" />
-        <activity android:name=".controller.MenuTemporarioActivity">
+        <activity android:name=".controller.SelecionarSenhaActivity" />
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.SelecionarSenhaActivity"></activity>
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

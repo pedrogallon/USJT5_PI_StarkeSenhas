@@ -11,13 +11,14 @@ import br.usjt.starke.starkesenhas.model.AsyncTasks;
 import static br.usjt.starke.starkesenhas.model.StarkeNetwork.ENDERECO_REST;
 
 public class SplashscreenActivity extends Activity {
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        new AsyncTasks.getServicos().execute(
+        new AsyncTasks.getServicos(context).execute(
                 new AsyncTaskParams(this, ENDERECO_REST +
                         "servicos/"));
 

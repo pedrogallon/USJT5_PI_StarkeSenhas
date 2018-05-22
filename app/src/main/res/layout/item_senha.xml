@@ -5,30 +5,35 @@
     android:background="@drawable/main_header_selector"
     android:layout_height="match_parent"
     android:paddingVertical="6dp">
+
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:text="AA000"
-        android:textSize="20dp"
         android:id="@+id/item_senha_nome"
-        />
-    <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="@font/dosis_extralight"
+        android:text="AA000"
         android:textAlignment="center"
-        android:text="status"
-        android:textSize="20dp"
-        android:id="@+id/item_senha_status"/>
+        android:textSize="20dp" />
+
     <TextView
+        android:id="@+id/item_senha_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:fontFamily="@font/dosis_extralight"
+        android:text="STATUS"
         android:textAlignment="center"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/item_senha_estimativa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/dosis_extralight"
         android:text="00:00"
-        android:textSize="20dp"
-        android:id="@+id/item_senha_estimativa"/>
+        android:textAlignment="center"
+        android:textSize="20dp" />
 
 </LinearLayout>

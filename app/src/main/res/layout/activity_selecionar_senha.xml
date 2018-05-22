@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_header_selector"
+    tools:context=".controller.SelecionarSenhaActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.SelecionarSenhaActivity"
-    android:background="@drawable/main_header_selector"
     android:layout_gravity="center"
     android:gravity="center">
-    <EditText
-        android:id="@+id/selecionar_senha_nome"
-        android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/selecionar_senha_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dosis_extralight"
+            android:hint="AA000"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#ffffff"
+            android:textSize="40dp" />
+
+        <Button
+        android:layout_width="146dp"
         android:layout_height="wrap_content"
-        android:hint="AA000"
-        android:textSize="40dp"/>
-    <Button
-        android:layout_width="wrap_content"
+        android:background="#1164b7"
+        android:fontFamily="@font/montserrat"
+        android:onClick="getSenhaNome"
+        android:text="PROCURAR"
+        android:textColor="#FFFFFF" />
+    </LinearLayout>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation_selecionar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Procurar"
-        android:onClick="getSenhaNome"/>
-</LinearLayout>
+        android:background="@color/menu_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+
+</android.support.constraint.ConstraintLayout>
