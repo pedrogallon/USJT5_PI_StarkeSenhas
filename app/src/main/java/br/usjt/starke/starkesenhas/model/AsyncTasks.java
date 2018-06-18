@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+import br.usjt.starke.starkesenhas.R;
 import br.usjt.starke.starkesenhas.controller.GerarSenhaActivity;
 import br.usjt.starke.starkesenhas.controller.ListarSenhaActivity;
 import br.usjt.starke.starkesenhas.controller.MainActivity;
@@ -21,6 +23,58 @@ public class AsyncTasks {
     public static final String SERVICOS = "br.usjt.starke.starkesenhas.model.AsyncTasks.servicos";
     public static final String SENHA_GERADA = "br.usjt.starke.starkesenhas.model.AsyncTasks.senha_gerada";
     public static final String SENHAS = "br.usjt.starke.starkesenhas.model.AsyncTasks.senhas";
+
+    public static class getServicosSenha extends AsyncTask<AsyncTaskParams, Void, ArrayList<Senha>> {
+        Context context;
+        private ProgressDialog dialog;
+
+        public getServicosSenha(Context activity){
+            dialog = new ProgressDialog(activity);
+        }
+
+        protected void onPreExecute() {
+            dialog.setMessage("Carregando...");
+            dialog.show();
+        }
+
+        @Override
+        protected ArrayList<Senha> doInBackground(AsyncTaskParams... params) {
+            ArrayList<Senha> servicos = new ArrayList<>();
+            context = params[0].context;
+
+            try {
+                servicos = StarkeNetwork.getServicos(params[0].url);
+            } catch (IOException e) {
+                servicos = null;
+                e.printStackTrace();
+            }
+            return servicos;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Senha> servicos) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            if(servicos == null){
+                new AlertDialog.Builder(context)
+                    .setTitle("SERVIDOR INDISPONIVEL")
+                    .setMessage("Tente novamente mais tarde.")
+                    .setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    context.startActivity(new Intent(context, MainActivity.class));
+                                }
+                            })
+                    .show();
+            }else{
+                ListView lista = (ListView)((Activity)context).findViewById(R.id.lista_servicos);
+                ServicosAdapter adapter = new ServicosAdapter(context, servicos);
+                lista.setAdapter(adapter);
+            }
+        }
+    }
 
     public static class getServicos extends AsyncTask<AsyncTaskParams, Void, ArrayList<Servico>> {
         Context context;

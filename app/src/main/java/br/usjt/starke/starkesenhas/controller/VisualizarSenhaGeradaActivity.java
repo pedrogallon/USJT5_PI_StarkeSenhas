@@ -34,13 +34,14 @@ public class VisualizarSenhaGeradaActivity extends Activity {
 
         Senha senha = (Senha) i.getSerializableExtra(SENHA_GERADA);
 
-
         TextView senhaNome, senhaServico, senhaTipo, senhaFila, senhaFinal;
         senhaNome = findViewById(R.id.visualizar_senha_nome);
         senhaServico = findViewById(R.id.visualizar_senha_servico);
         senhaTipo = findViewById(R.id.visualizar_senha_tipo);
         senhaFila = findViewById(R.id.visualizar_senha_datagroup_fila);
         senhaFinal = findViewById(R.id.visualizar_senha_datagroup_final);
+        new AsyncTasks.getServicosSenha(context).execute(
+                new AsyncTaskParams(context, ENDERECO_REST+"/servicos/"+ senha.getNome() +"/"));
 
         senhaNome.setText(senha.getNome());
         senhaServico.setText(senha.getServico().getNome());

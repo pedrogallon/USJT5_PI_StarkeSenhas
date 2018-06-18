@@ -8,6 +8,20 @@
     android:background="@drawable/main_header_selector"
     tools:context=".controller.MainActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ticket_main" />
+    </LinearLayout>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_main"
         android:layout_width="match_parent"

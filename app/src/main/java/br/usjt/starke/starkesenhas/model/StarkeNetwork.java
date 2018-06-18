@@ -1,5 +1,8 @@
 package br.usjt.starke.starkesenhas.model;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,13 +12,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class StarkeNetwork {
-    public static String ENDERECO_REST = "http://10.0.100.14:8080/starke_project/rest/";
+    public static String ENDERECO_REST = "http://10.0.100.12:8080/starke_project/rest/";
 
     public static Senha criarSenha(String url) throws IOException {
 
@@ -113,32 +117,38 @@ public class StarkeNetwork {
         return senha;
     }
 
+    public static ArrayList<Senha> getServicos(String url) throws IOException{
+        OkHttpClient client = new OkHttpClient();
+        ArrayList<Senha> senhas = new ArrayList<>();
+        Request request = new Request.Builder().url(url).build();
+        Response response = client.newCall(request).execute();
+        String json = response.body().string();
+        try {
+            JSONArray x = (JSONArray) new JSONArray(json);
+            x.length();
+            for (int i = 0; i < new JSONArray(json).length(); i++) {
+                JSONObject item = (JSONObject) x.get(i);
+                Log.d("TESTE", item.getString("dataEntrada"));
 
-    /**
-     * {
-     * "id": 20,
-     * "servico": {
-     * "id": "CN",
-     * "nome": "Renovacao CNH"
-     * },
-     * "subservico": {
-     * "id": 7,
-     * "servico": {
-     * "id": "CN",
-     * "nome": "Renovacao CNH"
-     * },
-     * "ordem": 1,]
-     * "nome": "Entregar Documentos"
-     * },
-     * "tipo": "comum",
-     * "nome": "CN009",
-     * "status": "aguardando",
-     * "dataEntrada": 1524083191666,
-     * "dataSaida": null,
-     * "estimativaFila": 1524085111660,
-     * "estimativaAtendimento": 1524089251660
-     * }
-     */
+                Senha senha = new Senha();
+                JSONObject senhaObj = (JSONObject) item.getJSONObject("subservico");
+                senha.setId(senhaObj.getInt("id"));
+                senha.setNome(senhaObj.getString("nome"));
+                if(item.getString("dataEntrada") != "null") {
+                    senha.setDataEntrada(new Date(item.getLong("dataEntrada")));
+                }
+                if(item.getString("dataSaida") != "null") {
+                    senha.setDataSaida(new Date(item.getLong("dataSaida")));
+                }
+                senhas.add(senha);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            throw new IOException(e);
+        }
+        return senhas;
+    }
+
     public static ArrayList<Servico> listarServico(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
         ArrayList<Servico> servicos = new ArrayList<>();

@@ -57,7 +57,6 @@ public class ListarSenhaActivity extends Activity {
 
         context = this;
         timer.schedule(reloadTask, 10000);
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener

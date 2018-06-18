@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_starke_blue"
+        android:icon="@mipmap/ic_starke_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_starke_blue_round"
+        android:roundIcon="@mipmap/ic_starke_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
