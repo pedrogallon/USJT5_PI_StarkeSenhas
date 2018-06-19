@@ -25,7 +25,7 @@
             android:gravity="center"
             android:text="AA000"
             android:textColor="#ffffff"
-            android:textSize="70dp" />
+            android:textSize="65dp" />
 
         <TextView
             android:id="@+id/visualizar_senha_tipo"
@@ -102,12 +102,23 @@
             android:layout_below="@id/lista_servicos_titulo"
             android:fastScrollEnabled="false" />
 
+        <TextView
+            android:id="@+id/estimativa_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lista_servicos"
+            android:fontFamily="@font/dosis_extralight"
+            android:gravity="center"
+            android:text="Estimativa"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
+
         <LinearLayout
             android:id="@+id/visualizar_senha_datagroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="81dp"
+            android:layout_below="@id/estimativa_senha"
+
             android:gravity="center">
 
             <TextView

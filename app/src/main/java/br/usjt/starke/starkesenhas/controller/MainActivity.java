@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_main);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        bottomNavigationView.getMenu().getItem(0).setChecked(false);
-    }
+                                                                                                                                                                                                                                                                    bottomNavigationView.getMenu().getItem(0).setChecked(true);
+                                                                                                                                                                                                                                                                }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
+                                                                                                                                                                                                                                                                private BottomNavigationView.OnNavigationItemSelectedListener navListener
+                                                                                                                                                                                                                                                                        = new BottomNavigationView.OnNavigationItemSelectedListener() {
+                                                                                                                                                                                                                                                                    @Override
+                                                                                                                                                                                                                                                                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                                                                                                                                                                                                                                                                        switch (item.getItemId()) {
                 case R.id.action_criar:
                     activityGerarSenha();
                     return true;
